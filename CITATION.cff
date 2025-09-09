@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: A Deep Learning Framework for Pulmonary Disease Classification Using Volume-Rendered CTs
+authors:
+  - family-names: Romero
+    given-names: Noemi Maritza L.
+    affiliation: Instituto de Informática, UFRGS
+  - family-names: Soares
+    given-names: Ricco V. C.
+    affiliation: Instituto de Informática, UFRGS
+  - family-names: Recamonde-Mendoza
+    given-names: Mariana
+    affiliation: Instituto de Informática, UFRGS
+  - family-names: Comba
+    given-names: João L. D.
+    affiliation: Instituto de Informática, UFRGS
+version: 0.1.0
+date-released: 2025-01-01
+license: Apache-2.0
+repository-code: https://github.com/<you>/pulmonary-dl-ct-2025
+keywords:
+  - deep learning
+  - pulmonary disease
+  - CT
+  - volume rendering
+  - classification
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.TBD
+preferred-citation:
+  type: software
+  title: A Deep Learning Framework for Pulmonary Disease Classification Using Volume-Rendered CTs
+  authors:
+    - family-names: Romero
+      given-names: Noemi Maritza L.
+    - family-names: Soares
+      given-names: Ricco V. C.
+    - family-names: Recamonde-Mendoza
+      given-names: Mariana
+    - family-names: Comba
+      given-names: João L. D.
+  year: 2025
+  url: https://github.com/<you>/pulmonary-dl-ct-2025
