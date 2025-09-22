@@ -248,7 +248,7 @@ def run_convert_and_segment(dicom_path=None, nii_path=None, nii_segmented_path=N
         return {'success': False, 'detail': f'{e}'}
 
 
-def run_covid_vr(nii_segmented_path=None, generate_video=False):
+def run_ct_vr(nii_segmented_path=None, generate_video=False):
     try:
         result = {'success': True, 'detail': ''}
         print('Init time: ' + time.strftime("%Y-%m-%d %H:%M:%S"))
@@ -302,7 +302,7 @@ if __name__ == "__main__":
     parser.add_argument('--nii_out', type=str, required=False, default=None, help='path to output .nii file')
     parser.add_argument('--nii_segmented_path', type=str, required=False, default=None, help='Segmented nifti file path')
     parser.add_argument('--convert_and_segment', required=False, default=False, help='Process only convert and segmentation', action='store_true')
-    parser.add_argument('--covid_vr_approach', required=False, default=False, help='Process only convert and segmentation', action='store_true')
+    parser.add_argument('--ct_vr_approach', required=False, default=False, help='Process only convert and segmentation', action='store_true')
     parser.add_argument('--full_pipeline', required=False, default=False, help='Process only prediction', action='store_true')
     parser.add_argument('--output', required=False, default='pipeline_result.json', help='file to save output, .json')
     parser.add_argument('--video', required=False, default=False, help='Generate video in process', action='store_true')
@@ -326,8 +326,8 @@ if __name__ == "__main__":
     with open(f'/data/{file_out}', 'w') as pr:
         json.dump(result, pr)
     
-    if args.full_pipeline is True or args.covid_vr_approach is True:
-        result = run_covid_vr(nii_segmented_path=segmented_path, generate_video=args.video)
+    if args.full_pipeline is True or args.ct_vr_approach is True:
+        result = run_ct_vr(nii_segmented_path=segmented_path, generate_video=args.video)
         print(result)
     with open(f'/data/{file_out}', 'w') as pr:
         json.dump(result, pr)

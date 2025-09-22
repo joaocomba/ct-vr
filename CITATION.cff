@@ -17,7 +17,7 @@ authors:
 version: 0.1.0
 date-released: 2025-01-01
 license: Apache-2.0
-repository-code: https://github.com/<you>/pulmonary-dl-ct-2025
+repository-code: https://github.com/joaocomba/ct-vr
 keywords:
   - deep learning
   - pulmonary disease
@@ -40,4 +40,4 @@ preferred-citation:
     - family-names: Comba
       given-names: João L. D.
   year: 2025
-  url: https://github.com/<you>/pulmonary-dl-ct-2025
+  url: https://github.com/joaocomba/ct-vr

@@ -1,7 +1,7 @@
 # DEFAULT BASE DIRS
 GENERAL_DISPLAY: ":0"
-PYTHON_PATH: "/opt/conda/envs/covid-vr/bin/python"
-CONDA_ENV_NAME: "covid-vr"
+PYTHON_PATH: "/opt/conda/envs/ct-vr/bin/python"
+CONDA_ENV_NAME: "ct-vr"
 BIN_PATH: "/bin/"
 
 # LOG AND RESULTS CSV FILE

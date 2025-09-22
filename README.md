@@ -12,18 +12,45 @@ Reproducible artifact for the paper **A Deep Learning Framework for Pulmonary Di
 
 ## Quick Start
 
-```bash
-conda env create -f environment.yml && conda activate pulmonet
-pip install -e .
-python scripts/run_demo.py
-pytest -q
-pytest --nbval-lax notebooks/00_quickstart.ipynb
+> [!IMPORTANT]
+> Run this pipeline in a server. By renderization of the transfer function cause loss of the UI functionality.
+
+## Build 
+In ct-vr-docker:
+```sh
+docker-compose build
+```
+
+## Set path to data shared directory with docker image
+Set in /path/to/local/data:
+- Models:
+    * model/axis1/my_checkpoint/
+	* model/axis2/my_checkpoint/
+	* ...
+- Legend:
+	*  model/legend.npy
+- Dicom files in path (sample):
+	* dicom/P064 (all dcm files inside this path)
+- Transfer Functions in tf path:
+	* tf/tf6.xml
+- Copy ct-vr-docker/config.yaml to /path/to/local/data
+
+
+## Execute:
+Full pipeline
+```sh
+docker run -it --gpus all --network host --env="DISPLAY" --env="NVIDIA_DRIVER_CAPABILITIES=compute,utility,display" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --volume="/path/to/local/data/:/data/" ct-vr-docker_ctvr:latest python pipeline.py --full_pipeline  --dicom_path /data/dicom/P064
+```
+
+Full pipeline with video generator:
+```sh
+docker run -it --gpus all --network host --env="DISPLAY" --env="NVIDIA_DRIVER_CAPABILITIES=compute,utility,display" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --volume="/path/to/local/data/:/data/" ct-vr-docker_ctvr:latest python pipeline.py --full_pipeline  --dicom_path /data/dicom/P064 --video
 ```
 
 ## Citing
 
 ```bibtex
-@software{pulmonet-2025,
+@software{ctvr-2025,
   title        = {A Deep Learning Framework for Pulmonary Disease Classification Using Volume-Rendered CTs},
   author       = {Noemi Maritza L. Romero, Ricco V. C. Soares, Mariana Recamonde-Mendoza, João L. D. Comba},
   year         = {2025},

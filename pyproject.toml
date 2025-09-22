@@ -1,9 +1,5 @@
-[build-system]
-requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
-name = "pulmonet"
+name = "ctvr"
 version = "0.1.0"
 description = "Artifact code for: A Deep Learning Framework for Pulmonary Disease Classification Using Volume-Rendered CTs"
 readme = "README.md"
@@ -14,11 +10,9 @@ authors = [
   { name = "João L. D. Comba" }
 ]
 license = { file = "LICENSE" }
-requires-python = ">=3.9"
+requires-python = "=3.8"
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/<you>/pulmonary-dl-ct-2025"
+Homepage = "https://github.com/joaocomba/ct-vr"
 
-[tool.setuptools.packages.find]
-where = ["src/python"]

@@ -75,15 +75,15 @@ RUN wget https://repo.continuum.io/archive/Anaconda3-$ANACONDA_VERSION-Linux-x86
 ENV PATH /opt/conda/envs/env/bin:$PATH
 COPY script.sh /opt/script.sh
 SHELL ["/bin/bash", "-c"] 
-COPY covid-vr_env.sh /opt/covid-vr_env.sh
+COPY ct-vr_env.sh /opt/ct-vr_env.sh
 RUN conda init bash && \
 	chmod +x /opt/script.sh  && \
 	/opt/script.sh && \
-	conda create -n covid-vr python=3.6 && \
-	echo "conda activate covid-vr" > ~/.bashrc && \
-	echo "conda activate covid-vr" > /root/.bashrc && \
-	chmod +x /opt/covid-vr_env.sh  && \ 
-	/opt/covid-vr_env.sh
+	conda create -n ct-vr python=3.6 && \
+	echo "conda activate ct-vr" > ~/.bashrc && \
+	echo "conda activate ct-vr" > /root/.bashrc && \
+	chmod +x /opt/ct-vr_env.sh  && \ 
+	/opt/ct-vr_env.sh
 
 
 # Reconfigure locale

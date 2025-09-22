@@ -1,9 +1,9 @@
 version: '3.8'
 services: 
-    covidvr:
-        build: ./covid-vr-env/
+    ctvr:
+        build: ./ct-vr-env/
         volumes: 
-            - /home/guilherme/Documents/noa/cidia19/covid-vr/data/:/data/
+            - /home/guilherme/Documents/noa/projects/ct-vr/data/:/data/
             - /tmp/.X11-unix:/tmp/.X11-unix:rw
         environment: 
             PORT: 5000

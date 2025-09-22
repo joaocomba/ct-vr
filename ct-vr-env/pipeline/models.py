@@ -9,7 +9,7 @@ from tensorflow.keras.models import load_model
 
 import sys
 
-class ModelCovidVR():
+class ModelCTVR():
     def __init__(self, model_path, legend_path, slices_path, width, height):
         self.MODEL_PATH = model_path
         self.LEGEND_PATH = legend_path
@@ -102,9 +102,9 @@ if __name__ == "__main__":
     parser.add_argument('--h', type=int, required=False, default=448, help='height')
 
     args = parser.parse_args()
-    model_covid_vr = ModelCovidVR(args.m, args.l, args.s, args.w, args.h)
-    res = model_covid_vr.test_patient(args.a)
+    model_ct_vr = ModelCTVR(args.m, args.l, args.s, args.w, args.h)
+    res = model_ct_vr.test_patient(args.a)
     with open('prediction_result.pkl', 'wb') as pr:
         pickle.dump(res, pr)
-    del model_covid_vr
+    del model_ct_vr
 
