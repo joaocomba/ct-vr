@@ -1,0 +1,47 @@
+# DEFAULT BASE DIRS
+GENERAL_DISPLAY: ":0"
+PYTHON_PATH: "/opt/conda/envs/covid-vr/bin/python"
+CONDA_ENV_NAME: "covid-vr"
+BIN_PATH: "/bin/"
+
+# LOG AND RESULTS CSV FILE
+BASE_LOG_CSV_PATH: '/data/status.csv'
+LOG_CSV_COLUMNS: ['name', 'study_id', 'to_nifti', 'segmented', 'to_slices_3d', 'to_video', 'predicted', 'percentage', 'axis_detail', 'axis_qty']
+AXIS: [1, 2]
+
+# DICOM -> NIFTI
+BASE_DICOM_INPUT_DIR: '/data/dicom'
+BASE_NII_ORIGINAL_OUTPUT_DIR: '/data/nii'
+
+# PHNN SEGMENTATION
+PHNN_EXECUTABLE_PATH: '/opt/p-hnn-lung-segmentation/segment_lung_phnn.py' 
+BASE_SEGMENTED_OUTPUT_DIR: '/data/nii-segmented'
+PHNN_THRESHOLD: 0.75
+PHNN_BATCH_SIZE: 10
+
+# MITK
+MITK_BACKGROUND_COLOR: [255, 255, 255]
+MITK_TRANSFER_FUNCTION_PATH: '/data/tf/tf6.xml'
+
+# DEFAULT VALUES FOR VIDEO CREATION
+BASE_MITK_VIDEO_OUTPUT_DIR: '/data/videos'
+MITK_VIDEO_EXECUTABLE_PATH: '/opt/video-generator/build/video-generator' 
+MITK_VIDEO_WIDTH: 512 #px
+MITK_VIDEO_HEIGHT: 450 #px
+MITK_VIDEO_TIME: 10.0 # In seconds
+MITK_VIDEO_FPS: 30
+
+# DEFAULT VALUES FOR SLICES CREATION
+BASE_MITK_CAMERA_SHOT_OUTPUT_DIR: '/data/camera-shots-images'
+MITK_CAMERA_SHOT_EXECUTABLE_PATH: '/opt/camera-shots-generator/build/camera-shots' 
+MITK_CAMERA_SHOT_WIDTH: 448 #px
+MITK_CAMERA_SHOT_HEIGHT: 448 #px
+MITK_CAMERA_SHOT_LENGTH: 42 # If not even is going to add 1 till MITK_VIEWS_LENGTH/2 is odd
+MITK_CAMERA_SHOT_AXIS: [1, 2]
+
+# RESNET DEFAULT VALUES FOR LOAD AND EXECUTE MODEL FOR PREDICTIONS
+PREDICTION_MODEL_PATH: '/data/model'
+PREDICTION_LEGEND_PATH: '/data/model/legend.npy'
+PREDICTION_AXIS: 2
+PREDICTION_WIDTH: 448
+PREDICTION_HEIGHT: 488

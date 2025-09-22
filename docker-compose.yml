@@ -1,0 +1,19 @@
+version: '3.8'
+services: 
+    covidvr:
+        build: ./covid-vr-env/
+        volumes: 
+            - /home/guilherme/Documents/noa/cidia19/covid-vr/data/:/data/
+            - /tmp/.X11-unix:/tmp/.X11-unix:rw
+        environment: 
+            PORT: 5000
+            FLASK_DEBUG: 1
+            NVIDIA_DRIVER_CAPABILITIES: compute,utility,display
+            DISPLAY: 
+        network_mode: host
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities:
+                            - gpu
