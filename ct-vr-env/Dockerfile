@@ -41,8 +41,8 @@ ENV MITK_BUILD_PATH=/opt/MITK-build
 ENV QT_ROOT_PATH=/opt/Qt/5.12.4
 ENV DEBIAN_FRONTEND=noninteractive
 #COPY TEMPORAL FILES PHNN, MODELS, IMAGES -> MAKE TO SHARED DIRECTORY
-RUN git clone https://github.com/covid-vr/video-generator.git /opt/video-generator && \
-	git clone https://github.com/covid-vr/camera-shots-generator.git /opt/camera-shots-generator && \
+RUN git clone https://github.com/ct-vr/video-generator.git /opt/video-generator && \
+	git clone https://github.com/ct-vr/camera-shots-generator.git /opt/camera-shots-generator && \
 	git clone https://github.com/noamlr/vglrun-support /opt/vglrun-support && \	
 	cd /opt/camera-shots-generator && cmake -B build -S . && cd build && make && \
 	cd /opt/video-generator && cmake -B build -S . && cd build && make 
