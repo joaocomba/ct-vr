@@ -22,13 +22,16 @@ docker-compose build
 ```
 
 ## Set path to data shared directory with docker image
+
+The weights and legends are not provided within this repository. To generate new ones train with the `./train-val-network` folder. Then:
+
 Set in /path/to/local/data:
 - Models:
-    * model/axis1/my_checkpoint/
+  * model/axis1/my_checkpoint/
 	* model/axis2/my_checkpoint/
 	* ...
 - Legend:
-	*  model/legend.npy
+	* model/legend.npy
 - Dicom files in path (sample):
 	* dicom/P064 (all dcm files inside this path)
 - Transfer Functions in tf path:
@@ -54,7 +57,7 @@ docker run -it --gpus all --network host --env="DISPLAY" --env="NVIDIA_DRIVER_CA
   title        = {A Deep Learning Framework for Pulmonary Disease Classification Using Volume-Rendered CTs},
   author       = {Noemi Maritza L. Romero, Ricco V. C. Soares, Mariana Recamonde-Mendoza, João L. D. Comba},
   year         = {2025},
-  url          = {https://github.com/<you>/pulmonary-dl-ct-2025}
+  url          = {https://github.com/joaocomba/ct-vr}
 }
 ```
 
