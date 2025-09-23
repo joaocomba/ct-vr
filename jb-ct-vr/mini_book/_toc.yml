@@ -1,0 +1,19 @@
+format: jb-book
+root: docs/index
+parts:
+
+- caption: About
+  chapters:
+  - file: docs/about/about
+- caption: Datasets
+  chapters:
+  - file: docs/datasets/public
+  - file: docs/datasets/private
+- caption: Results
+  chapters:
+  - file: docs/results/ternary
+  - file: docs/results/binary
+  - file: docs/results/full
+- caption: Resources
+  chapters:
+  - file: docs/resources/supplementary
