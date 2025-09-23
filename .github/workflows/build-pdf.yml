@@ -4,7 +4,7 @@ on:
     - cron: '0 0 * * *'
   push:
     branches:
-      - master
+      - main
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
           auto-activate-base: false
           miniconda-version: 'latest'
           python-version: 3.8
-          environment-file: environment.yml
+          environment-file: jb-ct-vr/environment.yml
           activate-environment: qe-mini-example
       - name: Build QuantEcon Mini Example
         shell: bash -l {0}
