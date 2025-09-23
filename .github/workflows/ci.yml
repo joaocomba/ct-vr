@@ -1,32 +1,31 @@
-name: CI
-
+name: Build HTML
 on:
   push:
-  pull_request:
-
+    branches-ignore:
+      - master
 jobs:
-  build-test:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
         with:
-          python-version: "3.11"
+          persist-credentials: false
 
-      - name: Install test deps
-        run: |
-          python -m pip install -U pip
-          pip install pytest nbval
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          auto-activate-base: false
+          miniconda-version: 'latest'
+          python-version: 3.8
+          environment-file: jb-ct-vr/environment.yml
+          activate-environment: qe-mini-example
 
-      - name: Run demo
-        run: |
-          export PYTHONPATH=src/python:$PYTHONPATH
-          python scripts/run_demo.py
+      - name: Install jupyter_book
+        shell: bash -l {0}
+        run: pip install git+https://github.com/ExecutableBookProject/jupyter-book.git@master
 
-      - name: Execute quickstart notebook
-        run: |
-          export PYTHONPATH=src/python:$PYTHONPATH
-          pytest --nbval-lax notebooks/00_quickstart.ipynb
+      - name: Build QuantEcon Mini Example
+        shell: bash -l {0}
+        run: jb build jb-ct-vr/mini_book/

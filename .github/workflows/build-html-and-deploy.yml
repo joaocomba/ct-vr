@@ -1,10 +1,12 @@
-name: Build HTML
+name: Build HTML and Deploy to GH-PAGES
 on:
+  schedule:
+    - cron: '0 0 * * *'
   push:
-    branches-ignore:
+    branches:
       - master
 jobs:
-  build:
+  build-html-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -19,13 +21,17 @@ jobs:
           auto-activate-base: false
           miniconda-version: 'latest'
           python-version: 3.8
-          environment-file: environment.yml
+          environment-file: jb-ct-vr/environment.yml
           activate-environment: qe-mini-example
-
-      - name: Install jupyter_book
-        shell: bash -l {0}
-        run: pip install git+https://github.com/ExecutableBookProject/jupyter-book.git@master
 
       - name: Build QuantEcon Mini Example
         shell: bash -l {0}
-        run: jb build mini_book/
+        run: jb build jb-ct-vr/mini_book/
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: jb-ct-vr/mini_book/_build/html
+          CLEAN: true
