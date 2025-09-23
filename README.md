@@ -16,7 +16,7 @@ Reproducible artifact for the paper **A Deep Learning Framework for Pulmonary Di
 > Run this pipeline in a server. By renderization of the transfer function cause loss of the UI functionality.
 
 ## Build 
-In ct-vr-docker:
+At the current path:
 ```sh
 docker-compose build
 ```
